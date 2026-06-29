@@ -46,6 +46,7 @@ services:
       HERMES_DASHBOARD_TOKEN: '${HERMES_DASHBOARD_TOKEN:-}'
       HERMES_PASSWORD: '${HERMES_PASSWORD:-${CLAUDE_PASSWORD:-}}'
       COOKIE_SECURE: '0'
+      TRUST_PROXY: 'true'
     volumes:
       - 'hermes-agent-data:/home/workspace/.hermes'
       - 'hermes-workspace-files:/workspace'
