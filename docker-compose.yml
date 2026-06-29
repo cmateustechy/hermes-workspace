@@ -1,6 +1,6 @@
 services:
   hermes-agent:
-    image: 'nousresearch/hermes-agent:latest'
+    image: 'nousresearch/hermes-agent:v2026.5.29'
     restart: unless-stopped
     command:
       - gateway
@@ -57,7 +57,6 @@ services:
 
       HERMES_PASSWORD: '${HERMES_PASSWORD:-${CLAUDE_PASSWORD:-}}'
       COOKIE_SECURE: '0'
-      TRUST_PROXY: 'true'
 
     volumes:
       - 'hermes-agent-data:/home/workspace/.hermes'
