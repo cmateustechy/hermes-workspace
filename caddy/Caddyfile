@@ -1,0 +1,7 @@
+:9191 {
+	reverse_proxy host.docker.internal:9119 {
+		header_up Host 127.0.0.1
+		header_up X-Forwarded-Host {host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+}
