@@ -41,6 +41,7 @@ services:
       HERMES_DASHBOARD_URL: 'http://127.0.0.1:9119'
       HERMES_API_TOKEN: '${API_SERVER_KEY}'
       HERMES_PASSWORD: '${HERMES_PASSWORD:-${CLAUDE_PASSWORD:-}}'
+      COOKIE_SECURE: '0'
     volumes:
       - 'hermes-agent-data:/home/workspace/.hermes'
       - 'hermes-workspace-files:/workspace'
