@@ -45,7 +45,7 @@ services:
     # immediately under `docker compose up -d`. We override here to start the
     # gateway, which is the long-running API/health server the Workspace needs.
     # See #360.
-    command: ["gateway", "run"]
+    command: [ "gateway", "run" ]
     env_file:
       - .env
     environment:
@@ -77,13 +77,13 @@ services:
     volumes:
       - hermes-agent-data:/opt/data
     healthcheck:
-      test: ['CMD-SHELL', 'curl -fsS http://localhost:8642/health && curl -fsS http://localhost:9119/api/status || exit 1']
+      test: [ 'CMD-SHELL', 'curl -fsS http://localhost:8642/health && curl -fsS http://localhost:9119/api/status || exit 1' ]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 30s
     ports:
-      - '127.0.0.1:8642:8642'
+      - '8642:8642'
 
   # The Hermes Workspace Web UI
   # Connects to hermes-agent at http://hermes-agent:8642
@@ -121,7 +121,7 @@ services:
       - hermes-agent-data:/home/workspace/.hermes
       - hermes-workspace-files:/workspace
     ports:
-      - '127.0.0.1:3000:3000'
+      - '3000:3000'
 
 volumes:
   hermes-agent-data:
